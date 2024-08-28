@@ -25,6 +25,17 @@ class LinkedList:
             last = last.next
         last.next = new_node
 
+    def remove_from_end(self):
+        """remove from the end of the linkedlist"""
+        if self.head == None:
+            print("Linked list is empty")
+            return
+        last = self.head
+        if last.next.next != None:
+            last = last.next
+        print("Removing Value: ", last.next.data)
+        last.next = None
+
     def traverse(self):
         """traverse the whole linked list."""
         # create temp to traverse to the last node not changing the head
@@ -37,7 +48,11 @@ class LinkedList:
 
 if __name__ == "__main__":
     ll = LinkedList()
+    ll.remove_from_end()
     ll.insert_at_end("Hello")
     ll.insert_at_end("Krishna")
     ll.insert_at_end("Karki")
+    ll.traverse()
+    ll.remove_from_end()
+    print("\nAfter Removal:")
     ll.traverse()
