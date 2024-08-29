@@ -66,5 +66,25 @@ class LinkedList:
 
 
 if __name__ == "__main__":
-    pass
+    l_list = LinkedList()
+    print("Enter q to quit!")
+    prompt = ""
+
+    # loop triggers until the user quits the loop
+    while prompt.lower() != "q":
+        prompt = input("Enter 1 for inserting, "
+                       "2 for deleting, "
+                       "3 for traversing: ")
+        if prompt == "1":
+            data = input("Enter data to insert in the list: ")
+            l_list.insert(data.strip())
+
+        elif prompt == "2":
+            l_list.remove_from_end()
+
+        elif prompt == "3":
+            l_list.traverse()
+
+        else:
+            print("Print please follow the command!")
 
