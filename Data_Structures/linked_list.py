@@ -10,7 +10,19 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def insert_at_end(self, data):
+    def insert(self, data):
+        """This method helps to choose from inserting from beginning
+        or end of linkedlist"""
+
+        choice = input("Enter 1 for inserting at beginning or 2 for the end: ")
+        if choice.strip() == "1":
+            self._insert_at_end(data)
+        elif choice.strip() == "2":
+            self._insert_at_front(data)
+        else:
+            print("Please follow the instruction correctly!")
+
+    def _insert_at_end(self, data):
         """insert the node at the end of linked_list"""
         new_node = Node(data)
 
@@ -24,6 +36,13 @@ class LinkedList:
         while last.next != None:
             last = last.next
         last.next = new_node
+
+    def _insert_at_front(self, data):
+        """This inserts an element in the front of the linked list."""
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
 
     def remove_from_end(self):
         """remove from the end of the linkedlist"""
@@ -47,12 +66,5 @@ class LinkedList:
 
 
 if __name__ == "__main__":
-    ll = LinkedList()
-    ll.remove_from_end()
-    ll.insert_at_end("Hello")
-    ll.insert_at_end("Krishna")
-    ll.insert_at_end("Karki")
-    ll.traverse()
-    ll.remove_from_end()
-    print("\nAfter Removal:")
-    ll.traverse()
+    pass
+
