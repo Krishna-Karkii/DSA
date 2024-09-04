@@ -11,10 +11,16 @@ def swap_values(j, i, data):
 
 def bubble_sort(data, length):
     """implement bubble sort algorithm."""
+    swap_count = 0
     for i in range(length - 1, -1, -1):
         for j in range(length):
             if j < i and data[j] > data[i]:
                 data = swap_values(j, i, data)
+                swap_count += 1
+
+        # data in sorted form if no swaps
+        if swap_count == 0:
+            return data
 
     return data
 
